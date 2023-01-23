@@ -1,0 +1,55 @@
+.btn {
+    margin: 0;
+    padding: 10px;
+    background: none;
+    border: 2px solid #fff;
+    font-size: 15px;
+    color: #131313;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border-radius: 12px;
+    font-weight: bolder;
+    box-shadow: 0 2px 0 2px #000;
+}
+
+.btnPositive {
+    background-color: #bdf3a2;
+}
+
+.btnNegative {
+    background-color: #df5555;
+}
+
+.btn:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 180%;
+    background-color: #ff6700;
+    top: 50%;
+    transform: skewX(30deg) translate(-160%, -60%);
+    transition: all 0.5s;
+}
+
+.btnPositive:hover {
+    background-color: #509c2a;
+    color: #fff;
+    box-shadow: 0 2px 0 2px #0d3b66;
+}
+
+.btnNegative:hover {
+    background-color: #ed2626;
+    color: #fff;
+    box-shadow: 0 2px 0 2px #0d3b66;
+}
+
+.btn:hover::before {
+    transform: skewX(30deg) translate(180%, -80%);
+    transition-delay: 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.9);
+}

@@ -1,0 +1,19 @@
+.bar {
+    margin: auto;
+    width: 100%;
+}
+.searchBarContainer {
+    width: 600px;
+    height: 40px;
+
+    margin: auto;
+
+    justify-content: center;
+}
+.manualSearch {
+    display: flex;
+    justify-content: space-between;
+}
+.fn-ctn {
+    margin-top: 7px;
+}

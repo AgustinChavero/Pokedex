@@ -1,0 +1,92 @@
+.detail_ctn {
+    width: 50%;
+
+    padding-top: 10%;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+.detail_card {
+    padding: 40px;
+
+    display: flex;
+    text-align: center;
+
+    border-radius: 20px;
+    background-color: #f3e8ac;
+    box-shadow: 0 2px 0 2px #000;
+}
+.image_ctn {
+    width: 35%;
+    padding-right: 20px;
+    border-right: solid black 2px;
+}
+.poke_name_ctn {
+    padding-bottom: 40px;
+}
+.poke_image {
+    max-width: 200px;
+    transition: 0.5s;
+    object-fit: cover;
+}
+.poke_image:hover {
+    transform: scale(1.2);
+}
+.poke_info_ctn {
+    width: 60%;
+    padding-left: 50px;
+}
+.ref_icon {
+    width: 30px;
+    height: 30px;
+
+    max-width: 35px;
+    max-height: 35px;
+
+    margin-right: 5%;
+}
+.poke_info {
+    display: flex;
+    text-align: center;
+    padding: 10px;
+}
+.stats {
+    text-align: left;
+    margin-left: 16%;
+}
+.ability {
+    text-align: left;
+    margin-left: 7%;
+}
+.moves {
+    text-align: left;
+    margin-left: 10%;
+}
+.type_icon {
+    width: 70px;
+    margin-left: 15%;
+}
+.button_ctn {
+    position: absolute;
+    margin-left: 35%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.button_ctn {
+    width: 15%;
+}

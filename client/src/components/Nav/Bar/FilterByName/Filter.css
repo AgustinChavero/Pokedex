@@ -1,0 +1,61 @@
+.filterContainer {
+    display: flex;
+}
+.buttonImage {
+    background: rgba(0, 0, 0, 0);
+    border-style: none;
+}
+.image {
+    width: 60px;
+}
+.search-ctn {
+    display: flex;
+}
+.inputSearch {
+    border-style: none;
+    
+    box-shadow: 0 2px 0 2px #000;
+}
+.buttonSearch {
+    padding: 3px 3px 3px 3px;
+    background: none;
+    border: 2px solid #fff;
+    font-size: 15px;
+    color: #131313;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+
+    font-weight: bolder;
+    box-shadow: 0 2px 0 2px #000;
+}
+.buttonSearch {
+    background-color: #bdf3a2;
+}
+.buttonSearch:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 120%;
+    background-color: #ff6700;
+    top: 50%;
+    transform: skewX(30deg) translate(-150%, -50%);
+    transition: all 0.5s;
+}
+
+.buttonSearch:hover {
+    background-color: #509c2a;
+    color: #fff;
+    box-shadow: 0 2px 0 2px #0d3b66;
+}
+.buttonSearch:hover::before {
+    transform: skewX(30deg) translate(150%, -50%);
+    transition-delay: 0.1s;
+}
+
+.buttonSearch:active {
+    transform: scale(0.9);
+}

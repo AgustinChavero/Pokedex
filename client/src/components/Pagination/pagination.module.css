@@ -1,0 +1,40 @@
+.button_move {
+    width: 50px;
+    margin-bottom: 5%;
+    background-color: #F0D11D;
+    border-radius: 50%;
+}
+.button_move:hover {
+    cursor: pointer;
+    background-color: #bea516;
+}
+.buttons_ctn {
+    width: 15%;
+
+    margin-left: 41%;
+    margin-right: 41%;
+
+    display: flex;
+    justify-content: space-between;
+}
+.cards_ctn {
+    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: auto;
+  justify-content: space-evenly;
+  margin: 1.5rem auto auto;
+  width: 90%;
+}
+
+.card_place {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: space-evenly;
+    margin: 1.5rem auto auto;
+    width: 90%;
+}
