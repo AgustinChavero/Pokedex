@@ -1,13 +1,14 @@
-import Pagination from "../../components/Pagination/Pagination";
-import FilterByType from "../../components/FilterByType/FilterByType";
-
-import "./Home.css";
-import s from "./Home.module.css"
-import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { getAllPokemons } from "../../redux/actions";
 
-function Home (props) {
+import Pagination from "../../components/Pagination/Pagination";
+import FilterByType from "../../components/FilterByType/FilterByType";
+import Order from "../../components/Order/Order"
+
+import s from "./Home.module.css";
+
+function Home () {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllPokemons());
@@ -16,6 +17,7 @@ function Home (props) {
         <main>
             <div className={`${s.ft_ctn}`}>
                 <FilterByType/>
+                <Order/>
             </div>
             <div className={`${s.cards_ctn}`}>
                 <Pagination/>

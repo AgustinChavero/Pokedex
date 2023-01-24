@@ -2,7 +2,7 @@ const {Pokemon, Type} = require("../db");
 const axios = require("axios");
 
 const getAllApi = async () => {
-    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon`)
+    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=100`)
     const pokemon = []
     response.data.results.forEach(e => {
         pokemon.push(
@@ -97,8 +97,8 @@ const getByNameDB = async (name) => {
     return pokemon;
 }
 
-const createPokemon = async (name, hp, attack, defense, speed, height, weight) => {
-    const pokemonCreate = await Pokemon.create({name, hp, attack, defense, speed, height, weight});
+const createPokemon = async (name, type, hp, attack, defense, speed, height, weight, abilityOne, abilityTwo, moveOne, moveTwo) => {
+    const pokemonCreate = await Pokemon.create({name, type, hp, attack, defense, speed, height, weight, abilityOne, abilityTwo, moveOne, moveTwo});
     return pokemonCreate;
 }
 

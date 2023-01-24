@@ -15,6 +15,9 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true,
     },
+    type: {
+      type: DataTypes.ARRAY(DataTypes.STRING)
+    },
     hp: {
       type: DataTypes.INTEGER,
     },
@@ -32,6 +35,18 @@ module.exports = (sequelize) => {
     },
     weight: {
       type: DataTypes.INTEGER,
+    },
+    abilityOne: {
+      type: DataTypes.STRING
+    },
+    abilityTwo: {
+      type: DataTypes.STRING
+    },
+    moveOne: {
+      type: DataTypes.STRING
+    },
+    moveTwo: {
+      type: DataTypes.STRING
     }
   });
 };

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getAllPokemons } from "../../../redux/actions";
 
 import FilterByName from "./FilterByName/FilterByName";
@@ -9,6 +9,7 @@ import "./Bar.css";
 
 
 const Bar = () => {
+    const { pathname } = useLocation();
     const dispatch = useDispatch()
     
     const onClick = () => {
@@ -19,8 +20,8 @@ const Bar = () => {
       <div className="bar">
         <div className="searchBarContainer">
           <div className="manualSearch">
-            <div className="fn-ctn"><FilterByName/></div>
-            <ButtonPositive onClick={onClick}>Reload</ButtonPositive>
+            {pathname === "/home" ? <div className="fn-ctn"><FilterByName/></div> : null}
+            {pathname === "/home" ? <ButtonPositive onClick={onClick}>Reload</ButtonPositive> : null}
             <Link to="/createPokemon"><ButtonPositive>Create Pokemon</ButtonPositive></Link>
           </div>
         </div>

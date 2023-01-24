@@ -1,4 +1,4 @@
-import { GET_ALL_POKEMONS ,CREATE_POKEMON, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, GET_POKEMONS_TYPES, ORDER_POKEMONS_BY_NAME, FILTER_POKEMONS_BY_TYPES, FILTER_POKEMONS_BY_TYPES_COMBINATED } from "./actions";
+import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, GET_POKEMONS_TYPES, ORDER_POKEMONS_AZ_ZA, FILTER_POKEMONS_BY_TYPES, FILTER_POKEMONS_BY_TYPES_COMBINATED } from "./actions";
 
 const initialState = {
     allPokemons: [],
@@ -9,9 +9,6 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case CREATE_POKEMON : return {
-            ...state
-        }
         case GET_ALL_POKEMONS : return {
             ...state,
             allPokemons: action.payload,
@@ -37,9 +34,19 @@ const reducer = (state = initialState, action) => {
             ...state,
             pokemonFilter: state.allPokemons.filter((e) => e.type.includes(action.payload.first) && e.type.includes(action.payload.second))
         }
-        case ORDER_POKEMONS_BY_NAME : return {
+        case ORDER_POKEMONS_AZ_ZA : return {
             ...state,
-            allPokemons: state.allPokemons.sort()
+            pokemonFilter: [...state.pokemonFilter].sort((a, b) => {
+                if (action.payload.value === "ascendent") {
+                    if (a[action.payload] > b[action.payload]) {
+                        return 1;
+                    } else return -1;
+                } else {
+                    if (a[action.payload.sort] > b[action.payload.sort]) {
+                        return -1;
+                    } else return 1;
+                }
+            })
         }
         default: return state;
     }

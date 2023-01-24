@@ -4,7 +4,7 @@ import HomeScreen from "./pages/HomeScreen/HomeScreen";
 import Home from "./pages/Home/Home";
 import Types from "./pages/Types/Types";
 import Detail from "./pages/Detail/Detail";
-import CreatePokemon from "./components/Nav/Bar/CreatePokemon/CreatePokemon";
+import CreatePokemon from "./pages/CreatePokemon/CreatePokemon"
 
 import './App.css';
 import NavBar from "./components/Nav/Nav";

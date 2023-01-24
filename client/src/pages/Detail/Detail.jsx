@@ -73,7 +73,15 @@ function Detail () {
                     <div className={`${s.poke_info}`}>
                         <img src={Class} alt="class" className={`${s.ref_icon}`}/>
                         <h3 className={`${s.type}`}>Type: </h3>
-                        <img src={pokemonType[Pokemon.type]} alt="type_icon" className={`${s.type_icon}`}/>
+                        {/* <img src={pokemonType[Pokemon.type]} alt="type_icon" className={`${s.type_icon}`}/> */}
+                        {Pokemon.type?.map((t) => (
+                            <img 
+                                className={`${s.type_icon}`} 
+                                src={pokemonType[t]} 
+                                alt={t} 
+                                key={t} 
+                                />
+                        ))}
                     </div>
                     <div className={`${s.poke_info}`}>
                         <img src={Stats} alt="stats" className={`${s.ref_icon}`}/>

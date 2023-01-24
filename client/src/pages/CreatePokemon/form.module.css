@@ -1,0 +1,43 @@
+.base {
+    width: 100%;
+    padding-top: 6%;
+    padding-left: 30%;
+}
+.form_ctn {
+    width: 55%;
+    height: 70%;
+    padding: 15px;
+
+    display: block;
+
+    border-radius: 12px;
+    background: #f3dd64;
+    
+    box-shadow: 0 2px 0 2px #000;
+}
+.box_ctn {
+    border-bottom: solid black 1px;
+}
+.box {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.description {
+
+}
+.text_input {
+    width: 230px;
+    border-radius: 7px;
+    border: none;
+}
+.error {
+    text-align: right;
+    font-size: 12px;
+    padding-right: 12px;
+}
+.buttons_ctn {
+    display: flex;
+    padding-top: 10px;
+    justify-content: space-between;
+}

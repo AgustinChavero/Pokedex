@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllPokemons } from "../../redux/actions";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import Card from "./Cards/Card"
 
