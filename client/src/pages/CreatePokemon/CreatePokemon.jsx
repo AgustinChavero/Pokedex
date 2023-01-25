@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { getPokemonTypes } from "../../redux/actions";
 import validation from "./validation";
 
-import ButtonPositive from "../../components/ButtonPN/ButtonPositive"
-import ButtonNegative from "../../components/ButtonPN/ButtonNegative";
+import ButtonPositive from "../../components/Buttons/ButtonPositive"
+import ButtonNegative from "../../components/Buttons/ButtonNegative";
 
 import s from "./form.module.css";
 
@@ -52,8 +52,8 @@ function CreatePokemon () {
     const onSubmit = (e) => {
         e.preventDefault()
         axios.post("http://localhost:3001/pokemons", state)
-            .then(() => {alert("FUE CREADO PAPA")})
-            .catch(() => {alert("ERROR PAPA")})
+            .then(() => {alert("Pokemon creado con exito")})
+            .catch(() => {alert("Hubo un error en los datos administrados")})
     }
 
     return (

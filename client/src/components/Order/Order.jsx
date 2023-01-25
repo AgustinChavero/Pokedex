@@ -1,32 +1,38 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { OrderPokemonsAZ } from "../../redux/actions";
+import { OrderPokemonsAttack, OrderPokemonsAZZA } from "../../redux/actions";
 
+import ButtonPositive from "../Buttons/ButtonPositive"
 
-import AZ from "../../assets/Types/az.png";
-import ZA from "../../assets/Types/za.png";
+import s from "./Order.module.css"
 
 function Order () {
     const dispatch = useDispatch()
-    const [state, setState] = useState("")
-    const onClick = (e) => {
-        console.log(e.target.name)
-        setState(e.target.name)
+    const [name, setName] = useState("")
+    const [attack, setAttack] = useState("")
+    const onClickAZZA = (e) => {
+        setName(e.target.value)
+        dispatch(OrderPokemonsAZZA(name))
     }
-    const onSubmit = (e) => {
-        e.preventDefault()
-        dispatch(OrderPokemonsAZ(state))
+    const onClickAttack = (e) => {
+        setAttack(e.target.value)
+        dispatch(OrderPokemonsAttack(attack))
     }
-
     return (
-        <form onSubmit={onSubmit}>
-            <button onClick={onClick} className="buttonImage">
-                <img src={AZ} alt="" className="image" name="ascendent"/>
-            </button>
-            <button onClick={onClick} className="buttonImage">
-                <img src={ZA} alt="" className="image" name="descendent"/>
-            </button>
-        </form>
+        <div className={`${s.button_ctn}`}>
+            <ButtonPositive onClick={onClickAZZA} value="descendent">
+                A-Z
+            </ButtonPositive>
+            <ButtonPositive onClick={onClickAZZA} value="ascendent">
+                Z-A
+            </ButtonPositive>
+            <ButtonPositive onClick={onClickAttack} value="ascendent">
+                +Attack
+            </ButtonPositive>
+            <ButtonPositive onClick={onClickAttack} value="descendent">
+                -Attack
+            </ButtonPositive>
+        </div>
     )
 }
 

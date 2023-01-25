@@ -1,0 +1,14 @@
+.not_found_ctn {
+    padding-top: 10%;
+    padding-left: 42%;
+    padding-right: 42%;
+    text-align: center;
+}
+
+.not_found_ctn h1 {
+    padding-left: 20px;
+}
+
+.not_found_img {
+    border-radius: 12px;
+}

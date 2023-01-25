@@ -1,4 +1,4 @@
-import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, GET_POKEMONS_TYPES, ORDER_POKEMONS_AZ_ZA, FILTER_POKEMONS_BY_TYPES, FILTER_POKEMONS_BY_TYPES_COMBINATED } from "./actions";
+import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, GET_POKEMONS_TYPES, ORDER_POKEMONS_AZ_ZA, FILTER_POKEMONS_BY_TYPES, FILTER_POKEMONS_BY_TYPES_COMBINATED, ORDER_POKEMONS_ATTACK } from "./actions";
 
 const initialState = {
     allPokemons: [],
@@ -37,17 +37,32 @@ const reducer = (state = initialState, action) => {
         case ORDER_POKEMONS_AZ_ZA : return {
             ...state,
             pokemonFilter: [...state.pokemonFilter].sort((a, b) => {
-                if (action.payload.value === "ascendent") {
-                    if (a[action.payload] > b[action.payload]) {
-                        return 1;
-                    } else return -1;
+                if (action.payload === "ascendent") {
+                    if (a.name < b.name) return -1;
+                    if (a.name > b.name) return 1;
+                    return 0;
                 } else {
-                    if (a[action.payload.sort] > b[action.payload.sort]) {
-                        return -1;
-                    } else return 1;
+                    if (a.name < b.name) return 1;
+                    if (a.name > b.name) return -1;
+                    return 0;
                 }
             })
         }
+        case ORDER_POKEMONS_ATTACK: return {
+            ...state,
+            pokemonFilter: [...state.pokemonFilter].sort((a, b) => {
+                if (action.payload === "ascendent") {
+                    if (a.attack < b.attack) return -1;
+                    if (a.attack > b.attack) return 1;
+                    return 0;
+                } else {
+                    if (a.attack < b.attack) return 1;
+                    if (a.attack > b.attack) return -1;
+                    return 0;
+                }
+            })
+        }
+
         default: return state;
     }
 };

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-import ButtonPositive from "../../components/ButtonPN/ButtonPositive";
-import ButtonNegative from "../../components/ButtonPN/ButtonNegative";
+import ButtonPositive from "../../components/Buttons/ButtonPositive";
+import ButtonNegative from "../../components/Buttons/ButtonNegative";
 import GIF from "../../assets/pikachufeliz.gif"
 
 import s from "./HomeScreen.module.css";
@@ -9,7 +9,7 @@ import s from "./HomeScreen.module.css";
 function HomeScreen () {
 
     const OnClose = () => {
-
+        window.close();
     }
 
     return (

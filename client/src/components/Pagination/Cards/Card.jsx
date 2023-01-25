@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
-import ButtonPositive from "../../ButtonPN/ButtonPositive"
+import ButtonPositive from "../../Buttons/ButtonPositive"
 
+import ImageDefault from "../../../assets/default.jpg"
 import s from "./Card.module.css"
 
 function Card (props) {
@@ -13,7 +14,7 @@ function Card (props) {
                     <div className={`${s.tittle_ctn}`}>
                         <h4 className={`${s.title}`}>{props.name}</h4>    
                     </div> 
-                    <img src={props.img} alt="PokemonImage" className={`${s.poke_image}`}/>
+                    <img src={props.img ? props.img : ImageDefault} alt="PokemonImage" className={`${s.poke_image}`}/>
                 </div>
                 <div className={`${s.reverse_card_back}`}>
                     <Link to={`/detail/${props.id}`} className={`${s.stats}`}><ButtonPositive>Detail</ButtonPositive></Link>

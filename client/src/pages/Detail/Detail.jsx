@@ -9,6 +9,8 @@ import Stats from "../../assets/Icons/stats.png"
 import Ability from "../../assets/Icons/ability.png"
 import Moves from "../../assets/Icons/moves.png"
 
+import ImageDefault from "../../assets/default.jpg"
+
 import fire from "../../assets/Types/fire.png";
 import water from "../../assets/Types/water.png";
 import grass from "../../assets/Types/grass.png";
@@ -28,7 +30,7 @@ import flying from "../../assets/Types/flying.png";
 import dark from "../../assets/Types/dark.png";
 import fairy from "../../assets/Types/fairy.png";
 
-import ButtonNegative from "../../components/ButtonPN/ButtonNegative";
+import ButtonNegative from "../../components/Buttons/ButtonNegative";
 import s from "./Detail.module.css";
 
 const pokemonType = {
@@ -67,13 +69,12 @@ function Detail () {
                     <div className={`${s.poke_name_ctn}`}>
                         <h1>{Pokemon.name}</h1>
                     </div>
-                    <img src={Pokemon.img} alt="ImagePokemon" className={`${s.poke_image}`}/>
+                    <img src={Pokemon.img ? Pokemon.img : ImageDefault} alt="ImagePokemon" className={`${s.poke_image}`}/>
                 </div>
                 <div className={`${s.poke_info_ctn}`}>
                     <div className={`${s.poke_info}`}>
                         <img src={Class} alt="class" className={`${s.ref_icon}`}/>
                         <h3 className={`${s.type}`}>Type: </h3>
-                        {/* <img src={pokemonType[Pokemon.type]} alt="type_icon" className={`${s.type_icon}`}/> */}
                         {Pokemon.type?.map((t) => (
                             <img 
                                 className={`${s.type_icon}`} 

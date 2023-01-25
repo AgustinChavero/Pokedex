@@ -1,0 +1,38 @@
+.about_us_ctn {
+    padding-top: 10%;
+}
+.about_us {
+    width: 70%;
+    height: 250px;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 10px;
+    
+    display: flex;
+    border-radius: 12px;
+    background: #f3e8ac;
+}
+.creator_ctn {
+    width: 100%;
+}
+.image_creator {
+    width: 90%;
+    border-radius: 12px;
+}
+.name_ctn {
+    text-align: center;
+    padding-bottom: 10px;
+}
+.icons_link_ctn {
+    width: 50%;
+    margin-top: 5%;
+    margin-left: 32%;
+    margin-right: 32%;
+    display: flex;
+    justify-content: space-between
+}
+.icons_link {
+    width: 20%;
+}
+.text_ctn {
+}

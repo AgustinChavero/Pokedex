@@ -6,7 +6,7 @@
 .form_ctn {
     width: 55%;
     height: 70%;
-    padding: 15px;
+    padding: 5px;
 
     display: block;
 
@@ -19,7 +19,7 @@
     border-bottom: solid black 1px;
 }
 .box {
-    padding: 10px;
+    padding: 5.5px;
     display: flex;
     justify-content: space-between;
 }

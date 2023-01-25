@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { getAllPokemons } from "../../../redux/actions";
 
 import FilterByName from "./FilterByName/FilterByName";
-import ButtonPositive from "../../ButtonPN/ButtonPositive";
+import ButtonPositive from "../../Buttons/ButtonPositive";
 
 import "./Bar.css";
 

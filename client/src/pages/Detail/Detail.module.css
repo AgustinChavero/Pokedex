@@ -2,8 +2,8 @@
     width: 50%;
 
     padding-top: 10%;
-    margin-right: 20%;
-    margin-left: 20%;
+    margin-right: 24%;
+    margin-left: 24%;
 }
 .detail_card {
     padding: 40px;
@@ -67,7 +67,8 @@
 }
 .button_ctn {
     position: absolute;
-    margin-left: 35%;
+    margin-left: 560px;
+    margin-top: 338px;
 }
 
 

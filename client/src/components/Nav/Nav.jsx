@@ -14,9 +14,6 @@ function Nav () {
                     <Link to="/home" className="navText"><h5 className="navText">Home</h5></Link>
                 </li>
                 <li className="liNav">
-                    <Link to="/types" className="navText"><h5 className="navText">Pokemon's Type</h5></Link>
-                </li>
-                <li className="liNav">
                     <Link to="/aboutus" className="navText"><h5 className="navText">About Us</h5></Link>
                 </li>
             </ul>

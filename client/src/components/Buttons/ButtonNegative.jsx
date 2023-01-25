@@ -1,4 +1,4 @@
-import "./ButtonPN.css";
+import "./PositiveNegative.css";
 
 function ButtonNegative ({children}) {
     return (

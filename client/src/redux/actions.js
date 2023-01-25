@@ -1,6 +1,5 @@
 import axios from "axios";
 
-export const CREATE_POKEMON = "CREATE_POKEMON";
 export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS"
 export const GET_POKEMON_BY_ID = "GET_POKEMON_BY_ID"
 export const GET_POKEMON_BY_NAME = "GET_POKEMON_BY_NAME"
@@ -8,19 +7,8 @@ export const GET_POKEMONS_TYPES = "GET_POKEMONS_TYPES"
 export const FILTER_POKEMONS_BY_TYPES = "FILTER_POKEMONS_BY_TYPES"
 export const FILTER_POKEMONS_BY_TYPES_COMBINATED = "FILTER_POKEMONS_BY_TYPES_COMBINATED"
 export const ORDER_POKEMONS_AZ_ZA = "ORDER_POKEMONS_AZ_ZA"
+export const ORDER_POKEMONS_ATTACK = "ORDER_POKEMONS_ATTACK"
 
-
-
-/* export function createPokemon (pokemon) {
-    return async function(dispatch) {
-        const response = await axios.post("http://localhost:3001/pokemons")
-        const pokemons = response.data;
-        dispatch({
-            type: CREATE_POKEMON, payload: pokemons
-        })
-    }
-    
-} */
 
 export const getAllPokemons = () => {
     return async function(dispatch) {
@@ -64,24 +52,27 @@ export const getPokemonTypes = () => {
         })
     }
 }
-
 export const filterPokemonByType = (type) => {
     return ({
         type: FILTER_POKEMONS_BY_TYPES,
         payload: type
     })
 }
-
 export const filterPokemonByTypeCombinated = (first, second) => {
     return ({
         type: FILTER_POKEMONS_BY_TYPES_COMBINATED,
         payload: {first, second}
     })
 }
-
-export const OrderPokemonsAZ = (order) => {
+export const OrderPokemonsAZZA = (state) => {
     return ({
         type: ORDER_POKEMONS_AZ_ZA,
-        payload: order
+        payload: state
+    })
+}
+export const OrderPokemonsAttack = (state) => {
+    return ({
+        type: ORDER_POKEMONS_ATTACK,
+        payload: state
     })
 }
