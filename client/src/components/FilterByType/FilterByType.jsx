@@ -20,6 +20,8 @@ import Bug from "../../assets/Types/bug.png";
 import Flying from "../../assets/Types/flying.png";
 import Dark from "../../assets/Types/dark.png";
 import Fairy from "../../assets/Types/fairy.png";
+import Shadow from "../../assets/Types/shadow.png"
+import Unknow from "../../assets/Types/unknow.png"
 
 import s from "./FilterByType.module.css"
 
@@ -106,6 +108,12 @@ function FilterByType () {
             </button>
             <button onClick={onClick} className={`${s.button_image}`}>
                 <img src={Fairy} alt="" className={`${s.image}`} name="fairy"/>
+            </button>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Shadow} alt="" className={`${s.image}`} name="shadow"/>
+            </button>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Unknow} alt="" className={`${s.image}`} name="unknow"/>
             </button>
         </form>
     )
