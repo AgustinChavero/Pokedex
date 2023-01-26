@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
         }
         case GET_POKEMON_BY_NAME : return {
             ...state,
-            pokemonFilter: state.allPokemons.filter((e) => e.name === action.payload)
+            pokemonFilter: state.allPokemons.filter((e) => e.name == action.payload)
         }
         case GET_POKEMONS_TYPES : return {
             ...state,

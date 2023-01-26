@@ -21,7 +21,7 @@ import Flying from "../../assets/Types/flying.png";
 import Dark from "../../assets/Types/dark.png";
 import Fairy from "../../assets/Types/fairy.png";
 
-import "./Filter.css";
+import s from "./FilterByType.module.css"
 
 function FilterByType () {
     const dispatch = useDispatch();
@@ -32,80 +32,80 @@ function FilterByType () {
     const [firstType, setFirstType] = useState("")
     const [secondType, setSecondType] = useState("")
 
-    const onChange = (e) => {
-        if (!firstType) {
-            setFirstType(e.target.name) //Fuego
-        } else if (!secondType) {
-            setSecondType(e.target.name) //Agua
+    const onClick = (e) => {
+        if (!firstType) { //Si es la primera vez que escribimos aca
+            setFirstType(e.target.name) //Insertamos el name en el primer state
+        } else if (!secondType) { //Si por segunda vez hacemos click, entramos aca
+            setSecondType(e.target.name) //Insertamos en el segundo state este name
         } else {
-            setFirstType(secondType) //En el tercero, corro el primero tomando el valor del segundo, y pasando el nuevo valor al segundo
-            setSecondType(e.target.name)
+            setFirstType(secondType) //En el tercero, corro el primero tomando el valor del segundo 
+            setSecondType(e.target.name) //Pasando el nuevo valor al segundo
         }
     }
     const onSubmit = (e) => {
         e.preventDefault()
-        if (!secondType) {
+        if (!secondType) { //Si no hay segundo state, solo ejecutamos el primer filter
             dispatch(filterPokemonByType(firstType))
-        } else {
+        } else { //Si hay dos, se ejecuta el siguiente filtro combinado
             dispatch(filterPokemonByTypeCombinated(firstType, secondType))
         }
     }
 
     return (
-        <form className="FilterContainer" onSubmit={onSubmit}>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Fire} alt="" className="image" name="fire"/>
+        <form className={`${s.filter_ctn}`} onSubmit={onSubmit}>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Fire} alt="" className={`${s.image}`} name="fire"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Water} alt="" className="image" name="water"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Water} alt="" className={`${s.image}`} name="water"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Grass} alt="" className="image" name="grass"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Grass} alt="" className={`${s.image}`} name="grass"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Ground} alt="" className="image" name="ground"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Ground} alt="" className={`${s.image}`} name="ground"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Rock} alt="" className="image" name="rock"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Rock} alt="" className={`${s.image}`} name="rock"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Steel} alt="" className="image" name="steel"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Steel} alt="" className={`${s.image}`} name="steel"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Ice} alt="" className="image" name="ice"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Ice} alt="" className={`${s.image}`} name="ice"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Electric} alt="" className="image" name="electric"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Electric} alt="" className={`${s.image}`} name="electric"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Dragon} alt="" className="image" name="dragon"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Dragon} alt="" className={`${s.image}`} name="dragon"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Ghost} alt="" className="image" name="ghost"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Ghost} alt="" className={`${s.image}`} name="ghost"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Psychic} alt="" className="image" name="psychic"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Psychic} alt="" className={`${s.image}`} name="psychic"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Normal} alt="" className="image" name="normal"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Normal} alt="" className={`${s.image}`} name="normal"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Fighting} alt="" className="image" name="fighting"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Fighting} alt="" className={`${s.image}`} name="fighting"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Poison} alt="" className="image" name="poison"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Poison} alt="" className={`${s.image}`} name="poison"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Bug} alt="" className="image" name="bug"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Bug} alt="" className={`${s.image}`} name="bug"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Flying} alt="" className="image" name="flying"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Flying} alt="" className={`${s.image}`} name="flying"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Dark} alt="" className="image" name="dark"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Dark} alt="" className={`${s.image}`} name="dark"/>
             </button>
-            <button onClick={onChange} className="buttonImage">
-                <img src={Fairy} alt="" className="image" name="fairy"/>
+            <button onClick={onClick} className={`${s.button_image}`}>
+                <img src={Fairy} alt="" className={`${s.image}`} name="fairy"/>
             </button>
         </form>
     )

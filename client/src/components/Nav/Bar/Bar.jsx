@@ -5,7 +5,7 @@ import { getAllPokemons } from "../../../redux/actions";
 import FilterByName from "./FilterByName/FilterByName";
 import ButtonPositive from "../../Buttons/ButtonPositive";
 
-import "./Bar.css";
+import s from "./Bar.module.css";
 
 
 const Bar = () => {
@@ -17,10 +17,10 @@ const Bar = () => {
     }
   
     return (
-      <div className="bar">
-        <div className="searchBarContainer">
-          <div className="manualSearch">
-            {pathname === "/home" ? <div className="fn-ctn"><FilterByName/></div> : null}
+      <div className={`${s.bar}`}>
+        <div className={`${s.search_bar_ctn}`}>
+          <div className={`${s.manual_search}`}>
+            {pathname === "/home" ? <div className={`${s.fn_ctn}`}><FilterByName/></div> : null}
             {pathname === "/home" ? <ButtonPositive onClick={onClick}>Reload</ButtonPositive> : null}
             <Link to="/createPokemon"><ButtonPositive>Create Pokemon</ButtonPositive></Link>
           </div>

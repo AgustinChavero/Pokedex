@@ -3,24 +3,23 @@ import { Link } from "react-router-dom";
 import Bar from "./Bar/Bar";
 import Logo from "../../assets/logo.png"
 
-/* import s from "./Nav.module.css" */
-import "./Nav.css";
+import s from "./Nav.module.css"
 
 function Nav () {
     return (
-        <nav className="nav-ctn">
-            <ul className="ulNav">
-                <li className="liNav">
-                    <Link to="/home" className="navText"><h5 className="navText">Home</h5></Link>
+        <nav className={`${s.nav_ctn}`}>
+            <ul className={`${s.ul_nav}`}>
+                <li className={`${s.li_nav}`}>
+                    <Link to="/home" className={`${s.nav_text}`}><h5 className={`${s.nav_text}`}>Home</h5></Link>
                 </li>
-                <li className="liNav">
-                    <Link to="/aboutus" className="navText"><h5 className="navText">About Us</h5></Link>
+                <li className={`${s.li_nav}`}>
+                    <Link to="/aboutus" className={`${s.nav_text}`}><h5 className={`${s.nav_text}`}>About Us</h5></Link>
                 </li>
             </ul>
-            <div className="logo-ctn">
-                <Link to="/"><img src={Logo} alt="logo" className="logoImage"/></Link>
+            <div className={`${s.logo_ctn}`}>
+                <Link to="/"><img src={Logo} alt="logo" className={`${s.logo_image}`}/></Link>
             </div>
-            <div className="bar-ctn">
+            <div className={`${s.bar_ctn}`}>
                 <Bar/>
             </div>
         </nav>

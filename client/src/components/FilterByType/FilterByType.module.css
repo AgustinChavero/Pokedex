@@ -1,0 +1,11 @@
+.filter_ctn {
+    display: flex;
+}
+.button_image {
+     background: rgba(0, 0, 0, 0); 
+    border-style: none;
+}
+.image {
+    width: 60px;
+    cursor: pointer;
+}
