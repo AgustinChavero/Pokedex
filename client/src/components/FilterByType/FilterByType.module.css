@@ -2,7 +2,8 @@
     display: flex;
 }
 .button_image {
-     background: rgba(0, 0, 0, 0); 
+    padding: 1px;
+    background: rgba(0, 0, 0, 0); 
     border-style: none;
 }
 .image {

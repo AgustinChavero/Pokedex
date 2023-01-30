@@ -9,7 +9,9 @@
     padding: 10px;
     
     display: flex;
-    border-radius: 12px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom: solid 2px black;
     background: #f3e8ac;
 }
 .creator_ctn {
@@ -35,4 +37,33 @@
     width: 20%;
 }
 .text_ctn {
+}
+/*---------------------------------------------------*/
+.tech_ctn {
+    width: 70%;
+    height: 250px;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 10px;
+    
+    display: flex;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background: #f3e8ac;
+}
+.tech_tittle {
+    text-align: center;
+    padding-bottom: 40px;
+}
+.icons_tech_ctn {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+.icons_tech {
+    width: 6%;
+}
+.icons_t {
+    width: 100%;
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { OrderPokemonsAttack, OrderPokemonsAZZA } from "../../redux/actions";
+import { getPokemonAPI, getPokemonDB, OrderPokemonsAttack, OrderPokemonsAZZA } from "../../redux/actions";
 
 import ButtonPositive from "../Buttons/ButtonPositive"
 
@@ -18,6 +18,12 @@ function Order () {
         setAttack(e.target.value)
         dispatch(OrderPokemonsAttack(attack))
     }
+    const onClickDB = (e) => {
+        dispatch(getPokemonDB())
+    }
+    const onClickAPI = (e) => {
+        dispatch(getPokemonAPI())
+    }
     return (
         <div className={`${s.button_ctn}`}>
             <ButtonPositive onClick={onClickAZZA} value="descendent">
@@ -31,6 +37,12 @@ function Order () {
             </ButtonPositive>
             <ButtonPositive onClick={onClickAttack} value="descendent">
                 -Attack
+            </ButtonPositive>
+            <ButtonPositive onClick={onClickDB}>
+                Locals
+            </ButtonPositive>
+            <ButtonPositive onClick={onClickAPI}>
+                API
             </ButtonPositive>
         </div>
     )

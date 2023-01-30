@@ -27,14 +27,9 @@
 
 }
 .text_input {
-    width: 230px;
+    width: 260px;
     border-radius: 7px;
     border: none;
-}
-.error {
-    text-align: right;
-    font-size: 12px;
-    padding-right: 12px;
 }
 .buttons_ctn {
     display: flex;

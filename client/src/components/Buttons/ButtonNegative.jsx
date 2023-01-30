@@ -1,8 +1,8 @@
 import "./PositiveNegative.css";
 
-function ButtonNegative ({children}) {
+function ButtonNegative ({children, onClick}) {
     return (
-        <button className="btn btnNegative">
+        <button className="btn btnNegative" onClick={onClick}>
             {children}
         </button>
     )

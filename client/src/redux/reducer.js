@@ -1,4 +1,4 @@
-import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, GET_POKEMONS_TYPES, ORDER_POKEMONS_AZ_ZA, FILTER_POKEMONS_BY_TYPES, FILTER_POKEMONS_BY_TYPES_COMBINATED, ORDER_POKEMONS_ATTACK } from "./actions";
+import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, GET_POKEMONS_TYPES, ORDER_POKEMONS_AZ_ZA, FILTER_POKEMONS_BY_TYPES, FILTER_POKEMONS_BY_TYPES_COMBINATED, ORDER_POKEMONS_ATTACK, DELETE_POKEMON_DB, GET_POKEMON_DB, GET_POKEMON_API } from "./actions";
 
 const initialState = {
     allPokemons: [],
@@ -14,13 +14,21 @@ const reducer = (state = initialState, action) => {
             allPokemons: action.payload,
             pokemonFilter: action.payload
         }
+        case GET_POKEMON_DB : return {
+            ...state,
+            pokemonFilter: state.allPokemons.filter((e) => typeof e.id === "string")
+        }
+        case GET_POKEMON_API : return {
+            ...state,
+            pokemonFilter: state.allPokemons.filter((e) => typeof e.id === "number")
+        }
         case GET_POKEMON_BY_ID : return {
             ...state,
             pokemonDetail: action.payload
         }
         case GET_POKEMON_BY_NAME : return {
             ...state,
-            pokemonFilter: state.allPokemons.filter((e) => e.name == action.payload)
+            pokemonFilter: state.allPokemons.filter((e) => e.name === action.payload)
         }
         case GET_POKEMONS_TYPES : return {
             ...state,
@@ -61,6 +69,10 @@ const reducer = (state = initialState, action) => {
                     return 0;
                 }
             })
+        }
+        case DELETE_POKEMON_DB: return {
+            ...state,
+            pokemonFilter: state.allPokemons.filter(e => e.id !== action.payload)
         }
 
         default: return state;

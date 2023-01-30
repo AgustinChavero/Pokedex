@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { getPokemonByID } from "../../redux/actions";
+import { deletePokemonDB, getPokemonByID } from "../../redux/actions";
 
 import Class from "../../assets/Icons/class.png"
 import Stats from "../../assets/Icons/stats.png"
@@ -61,6 +61,10 @@ function Detail () {
     useEffect(() => {
         dispatch(getPokemonByID(id));
     },[])
+
+    const onClick = () => {
+        dispatch(deletePokemonDB(Pokemon.id))
+    }
     
     return (
         <div className={`${s.detail_ctn}`}>
@@ -73,8 +77,10 @@ function Detail () {
                 </div>
                 <div className={`${s.poke_info_ctn}`}>
                     <div className={`${s.poke_info}`}>
-                        <img src={Class} alt="class" className={`${s.ref_icon}`}/>
-                        <h3 className={`${s.type}`}>Type: </h3>
+                        <div className={`${s.poke_divisor}`}>
+                            <img src={Class} alt="class" className={`${s.ref_icon}`}/>
+                            <h3 className={`${s.type}`}>Type: </h3>
+                        </div>
                         {Pokemon.type?.map((t) => (
                             <img 
                                 className={`${s.type_icon}`} 
@@ -85,8 +91,10 @@ function Detail () {
                         ))}
                     </div>
                     <div className={`${s.poke_info}`}>
-                        <img src={Stats} alt="stats" className={`${s.ref_icon}`}/>
-                        <h3>Stats: </h3>
+                        <div className={`${s.poke_divisor}`}>
+                            <img src={Stats} alt="stats" className={`${s.ref_icon}`}/>
+                            <h3>Stats: </h3>
+                        </div>
                         <div className={`${s.stats}`}>
                             <p>HP: {Pokemon.hp}</p>
                             <p>Attack: {Pokemon.attack}</p>
@@ -97,22 +105,31 @@ function Detail () {
                         </div>
                     </div>
                     <div className={`${s.poke_info}`}>
-                        <img src={Ability} alt="ability" className={`${s.ref_icon}`}/>
-                        <h3>Abilities: </h3>
+                        <div className={`${s.poke_divisor}`}>
+                            <img src={Ability} alt="ability" className={`${s.ref_icon}`}/>
+                            <h3>Abilities: </h3>
+                        </div>
                         <div className={`${s.ability}`}>
                             <p>{`${Pokemon.abilityOne} and ${Pokemon.abilityTwo}`}</p>
                         </div>
                     </div>
                     <div className={`${s.poke_info}`}>
-                        <img src={Moves} alt="moves" className={`${s.ref_icon}`}/>
-                        <h3>Moves: </h3>
+                        <div className={`${s.poke_divisor}`}>
+                            <img src={Moves} alt="moves" className={`${s.ref_icon}`}/>
+                            <h3>Moves: </h3>
+                        </div>
                         <div className={`${s.moves}`}>
                             <p>{`${Pokemon.moveOne} and ${Pokemon.moveTwo}`}</p>
                         </div>
                     </div>
                 </div>
                 <div className={`${s.button_ctn}`}>
-                    <Link to="/home"><ButtonNegative>Go Back</ButtonNegative></Link>
+                    <div className={`${s.butt}`}>
+                        <Link to="/home"><ButtonNegative>Go Back</ButtonNegative></Link>
+                    </div>
+                    <div className={`${s.butt}`}>
+                        <Link to="/home"><ButtonNegative onClick={onClick}>Delete</ButtonNegative></Link>
+                    </div>
                 </div>
             </div>
         </div>

@@ -7,7 +7,9 @@ const {
     getAllDB,
     getByIDDB,
     getByNameDB,
-    createPokemon
+    createPokemon,
+    toModifyInDB,
+    toDeleteInDB
 } = require("../controllers/PokemonsController");
 
 const router = Router();
@@ -54,6 +56,29 @@ router.post("/", async (req, res) => {
     try {
         const newPokemon = await createPokemon(name, type, hp, attack, defense, speed, height, weight, abilityOne, abilityTwo, moveOne, moveTwo)
         return res.status(200).json(newPokemon)
+    } catch (error) {
+        return res.status(404).json(error.message)
+    }
+})
+
+router.put("/:id", async (req, res) => {
+    const {id} = req.body;
+    const {name, type, hp, attack, defense, speed, height, weight, abilityOne, abilityTwo, moveOne, moveTwo} = req.body;
+    
+    try {
+        const pokemonToModify = await toModifyInDB(id, name, type, hp, attack, defense, speed, height, weight, abilityOne, abilityTwo, moveOne, moveTwo);
+        return res.status(200).json(pokemonToModify)
+    } catch (error) {
+        return res.status(404).json(error.messsage)
+    }
+})
+
+router.delete("/:id", async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        const pokemonToDelete = await toDeleteInDB(id)
+        return res.status(200).json(pokemonToDelete)
     } catch (error) {
         return res.status(404).json(error.message)
     }

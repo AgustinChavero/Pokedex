@@ -6,7 +6,7 @@
     margin-left: 24%;
 }
 .detail_card {
-    padding: 40px;
+    padding: 13px;
 
     display: flex;
     text-align: center;
@@ -33,7 +33,7 @@
 }
 .poke_info_ctn {
     width: 60%;
-    padding-left: 50px;
+    padding-left: 10px;
 }
 .ref_icon {
     width: 30px;
@@ -48,29 +48,42 @@
     display: flex;
     text-align: center;
     padding: 10px;
+    justify-content: space-between;
+}
+.poke_divisor {
+    display: flex;
 }
 .stats {
+    padding: 6px;
     text-align: left;
     margin-left: 16%;
+    background: #F0D11D;
+    border-radius: 12px;
 }
 .ability {
+    padding: 6px;
     text-align: left;
     margin-left: 7%;
+    background: #F0D11D;
+    border-radius: 12px;
 }
 .moves {
+    padding: 6px;
     text-align: left;
     margin-left: 10%;
+    background: #F0D11D;
+    border-radius: 12px;
 }
 .type_icon {
     width: 70px;
     margin-left: 15%;
 }
 .button_ctn {
-    position: absolute;
-    margin-left: 560px;
-    margin-top: 338px;
+    padding-left: 10px;
 }
-
+.butt {
+    padding-top: 10px;
+}
 
 
 

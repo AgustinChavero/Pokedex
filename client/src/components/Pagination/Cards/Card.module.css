@@ -32,6 +32,7 @@
 .tittle_ctn {
     position:absolute;
     margin-bottom: 190px;
+    
 }
 .title {
     padding: 3px;
@@ -42,6 +43,7 @@
     border-radius: 10px;
     border: solid black 2px;
     background-color: #f3e8ac;
+    box-shadow: 0 2px 0 2px #000;
 }
 .poke_image {
     position: absolute;
@@ -52,10 +54,22 @@
     max-width: 150px;
 }
 .stats_ctn {
-    text-align: left;
+    text-align: center;
     padding: 15px;
 }
 .stats {
+    margin: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+    color: black;
+    background: #F0D11D;
+    border-radius: 12px;
+    
+    border: solid black 1px;
+}
+.detail {
+    margin: 6px;
     padding-left: 5px;
     padding-right: 5px;
     text-decoration: none;

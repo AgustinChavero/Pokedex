@@ -91,7 +91,7 @@ const getByIDDB = async (id) => {
 }
 
 const getByNameDB = async (name) => {
-    const pokemon = await Pokemon.findAll({
+    const pokemon = await Pokemon.findOne({
         where: {name: name}
     });
     return pokemon;
@@ -100,6 +100,17 @@ const getByNameDB = async (name) => {
 const createPokemon = async (name, type, hp, attack, defense, speed, height, weight, abilityOne, abilityTwo, moveOne, moveTwo) => {
     const pokemonCreate = await Pokemon.create({name, type, hp, attack, defense, speed, height, weight, abilityOne, abilityTwo, moveOne, moveTwo});
     return pokemonCreate;
+}
+
+const toModifyInDB = async (id) => {
+    const pokemonToModify = await Pokemon.update({id})
+    return pokemonToModify;
+}
+
+const toDeleteInDB = async (id) => {
+    const pokemonToDelete = await Pokemon.findByPk(id)
+    await pokemonToDelete.destroy()
+    return pokemonToDelete
 }
 
 //--------------------------------------------------
@@ -118,5 +129,7 @@ module.exports = {
     getAllDB,
     getByIDDB,
     getByNameDB,
-    createPokemon  
+    createPokemon,
+    toModifyInDB,
+    toDeleteInDB
 }

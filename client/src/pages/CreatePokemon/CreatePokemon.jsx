@@ -46,14 +46,25 @@ function CreatePokemon () {
         moveTwo: "",
     })
     const onChange = (e) => {
-        setState({...state, [e.target.name]: e.target.value})
-        setErrors({...errors, ...validation({[e.target.name]: e.target.value})})
-    }
+        const property = e.target.name;
+        const value = e.target.value;
+        if (property === "type") {
+          setState({ ...state, [property]: [value] });
+        } else {
+          setState({ ...state, [property]: value });
+          setErrors({...errors, ...validation({[property]: [value]})})
+        }
+      };
     const onSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3001/pokemons", state)
+        const validate = validation(state);
+        if (Object.keys(validate).length === 0) {
+            axios.post("http://localhost:3001/pokemons", state)
             .then(() => {alert("Pokemon creado con exito")})
             .catch(() => {alert("Hubo un error en los datos administrados")})
+        } else {
+            console.log(validate)
+        }
     }
 
     return (
@@ -70,18 +81,17 @@ function CreatePokemon () {
                                 className={`${s.text_input}`}
                             />
                     </div>
-                    <div className={`${s.error_ctn}`}>
-                        {errors.name ? <div className={`${s.error}`}>{errors.name}</div> : null}
-                    </div>
                 </div>
                 <div className={`${s.box_ctn}`}>
                     <div className={`${s.box}`}>
                         <label className={`${s.description}`}><h3>Type</h3></label>
-                            <select onChange={onChange}>
+                            <select onChange={onChange} name="type">
                                 <option>Select Type</option>
-                                {types?.map((t) => {
-                                    return <option name="type" value={state.type}>{t.name}</option>
-                                })}
+                                {types.map((t, index) => (
+                                    <option key={index} value={t.name}>
+                                        {t.name}
+                                    </option>
+                                ))}
                             </select>
                     </div>
                 </div>
@@ -96,8 +106,17 @@ function CreatePokemon () {
                                 className={`${s.text_input}`}
                             />
                     </div>
-                    <div className={`${s.error_ctn}`}>
-                        {errors.hp ? <div className={`${s.error}`}>{errors.hp}</div> : null}
+                </div>
+                <div className={`${s.box_ctn}`}>
+                    <div className={`${s.box}`}>
+                        <label className={`${s.description}`}><h3>Speed</h3></label>
+                            <input type="number" 
+                                name="speed"
+                                value={state.speed}
+                                onChange={onChange}
+                                placeholder="Write the speed of your pokemon"
+                                className={`${s.text_input}`}
+                            />
                     </div>
                 </div>
                 <div className={`${s.box_ctn}`}>
@@ -111,9 +130,6 @@ function CreatePokemon () {
                                 className={`${s.text_input}`}
                             />
                     </div>
-                    <div className={`${s.error_ctn}`}>
-                        {errors.attack ? <div className={`${s.error}`}>{errors.attack}</div> : null}
-                    </div>
                 </div>
                 <div className={`${s.box_ctn}`}>
                     <div className={`${s.box}`}>
@@ -125,24 +141,6 @@ function CreatePokemon () {
                                 placeholder="Write the defense of your pokemon"
                                 className={`${s.text_input}`}
                             />
-                    </div>
-                    <div className={`${s.error_ctn}`}>
-                        {errors.defense ? <div className={`${s.error}`}>{errors.defense}</div> : null}
-                    </div>
-                </div>
-                <div className={`${s.box_ctn}`}>
-                    <div className={`${s.box}`}>
-                        <label className={`${s.description}`}><h3>Speed</h3></label>
-                            <input type="number" 
-                                name="speed"
-                                value={state.speed}
-                                onChange={onChange}
-                                placeholder="Write the speed of your pokemon"
-                                className={`${s.text_input}`}
-                            />
-                    </div>
-                    <div className={`${s.error_ctn}`}>
-                        {errors.speed ? <div className={`${s.error}`}>{errors.speed}</div> : null}
                     </div>
                 </div>
                 <div className={`${s.box_ctn}`}>
@@ -156,9 +154,6 @@ function CreatePokemon () {
                                 className={`${s.text_input}`}
                             />
                     </div>
-                    <div className={`${s.error_ctn}`}>
-                        {errors.height ? <div className={`${s.error}`}>{errors.height}</div> : null}
-                    </div>
                 </div>
                 <div className={`${s.box_ctn}`}>
                     <div className={`${s.box}`}>
@@ -170,9 +165,6 @@ function CreatePokemon () {
                                 placeholder="Write the weight of your pokemon"
                                 className={`${s.text_input}`}
                             />
-                    </div>
-                    <div className={`${s.error_ctn}`}>
-                        {errors.weight ? <div className={`${s.error}`}>{errors.weight}</div> : null}
                     </div>
                 </div>
                 <div className={`${s.box_ctn}`}>
@@ -186,9 +178,6 @@ function CreatePokemon () {
                                 className={`${s.text_input}`}
                             />
                     </div>
-                    <div className={`${s.error_ctn}`}>
-                        {errors.abilityOne ? <div className={`${s.error}`}>{errors.abilityOne}</div> : null}
-                    </div>
                 </div>
                 <div className={`${s.box_ctn}`}>
                     <div className={`${s.box}`}>
@@ -200,9 +189,6 @@ function CreatePokemon () {
                                 placeholder="Invent a skill for your pokemon"
                                 className={`${s.text_input}`}
                             />
-                    </div>
-                    <div className={`${s.error_ctn}`}>
-                        {errors.abilityTwo ? <div className={`${s.error}`}>{errors.abilityTwo}</div> : null}
                     </div>
                 </div>
                 <div className={`${s.box_ctn}`}>
@@ -216,9 +202,6 @@ function CreatePokemon () {
                                 className={`${s.text_input}`}
                             />
                     </div>
-                    <div className={`${s.error_ctn}`}>
-                        {errors.moveOne ? <div className={`${s.error}`}>{errors.moveOne}</div> : null}
-                    </div>
                 </div>
                 <div className={`${s.box_ctn}`}>
                     <div className={`${s.box}`}>
@@ -231,9 +214,14 @@ function CreatePokemon () {
                                 className={`${s.text_input}`}
                             />
                     </div>
-                    <div className={`${s.error_ctn}`}>
-                        {errors.moveTwo ? <div className={`${s.error}`}>{errors.moveTwo}</div> : null}
-                    </div>
+                </div>
+                <div className={`${s.error_ctn}`}>
+                        {errors.name ? <div className={`${s.error}`}>{errors.name}</div> : null}
+                        {errors.hp || errors.speed ? <div className={`${s.error}`}>{errors.hp} - {errors.speed}</div> : null}
+                        {errors.attack || errors.defense ? <div className={`${s.error}`}>{errors.attack} - {errors.defense}</div> : null}
+                        {errors.height || errors.weight ? <div className={`${s.error}`}>{errors.height} - {errors.weight}</div> : null}
+                        {errors.abilityOne || errors.abilityTwo ? <div className={`${s.error}`}>{errors.abilityOne} - {errors.abilityTwo}</div> : null}
+                        {errors.moveOne || errors.moveTwo ? <div className={`${s.error}`}>{errors.moveOne} - {errors.moveTwo}</div> : null}
                 </div>
                 <div className={`${s.buttons_ctn}`}>
                     <ButtonPositive>Create Pokemon</ButtonPositive>

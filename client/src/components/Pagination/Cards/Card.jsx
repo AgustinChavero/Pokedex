@@ -17,7 +17,7 @@ function Card (props) {
                     <img src={props.img ? props.img : ImageDefault} alt="PokemonImage" className={`${s.poke_image}`}/>
                 </div>
                 <div className={`${s.reverse_card_back}`}>
-                    <Link to={`/detail/${props.id}`} className={`${s.stats}`}><ButtonPositive>Detail</ButtonPositive></Link>
+                    <Link to={`/detail/${props.id}`} className={`${s.detail}`}><ButtonPositive>Detail</ButtonPositive></Link>
                     <div className={`${s.stats_ctn}`}>
                         <p className={`${s.stats}`}>HP: {props.hp}</p>
                         <p className={`${s.stats}`}>Attack: {props.attack}</p>
